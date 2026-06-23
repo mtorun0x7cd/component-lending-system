@@ -1,0 +1,56 @@
+[[sec:datenschema]]
+= Datenschema
+
+[plantuml]
+[[fig:datenschema]]
+.Datenschema
+----
+benutzer : campusid: String
+benutzer : id: Integer
+benutzer : vorname: String
+benutzer : nachname: String
+benutzer : adresse: String
+benutzer : stadt: String
+benutzer : region: String
+benutzer : plz: Integer
+benutzer : land: String
+benutzer : telefon: String
+benutzer : geburtsdatum: Date
+benutzer "1" -- "1" benutzerpasswort: > besitzt
+benutzer "*" -- "1" benutzergruppen: > besitzt
+benutzer "1" -- "*" ausleihe: > hat
+
+benutzerpasswort : campusid: String
+benutzerpasswort : passwort: String
+
+benutzergruppen : id: Integer
+benutzergruppen : name: String
+
+ausleihe : ausleihid: Integer
+ausleihe : campusid: String
+ausleihe : ausgegeben_am: Date
+ausleihe : zurueckzugeben_bis: Date
+ausleihe : status: String
+ausleihe "1" -- "*" ausleihposition: > besitzt
+
+ausleihposition : ausleihpositionid: Integer
+ausleihposition : ausleihid: Integer
+ausleihposition : teilenummer: Integer
+ausleihposition : stueckzahl: Integer
+
+artikel : teilenummer: Integer
+artikel : name: String
+artikel : link: String
+artikel : beschreibung: String
+artikel : stueckzahl: Integer
+artikel : stueckzahl_verfuegbar: Integer
+artikel : foto: String
+artikel : eaglebib: String
+artikel : lager_raum: String
+artikel : lager_schrank: String
+artikel : meldebestand: Integer
+artikel : rueckgabe_noetig: Boolean
+artikel "1" -- "*" ausleihposition: > zugewiesen
+----
+
+In der Bauteilverwaltung werden `Benutzer`, `Artikel` sowie `Ausleihe` gespeichert. Ein Benutzer besteht aus einer Campus ID (`campusid`), aus einem Passwort (`passwort`), einer Benutzergruppe (`id`) sowie den weiteren generischen Attributen (`vorname`, `nachname`, `adresse`, `stadt`, `region`, `plz`, `land`, `telefon`, `geburtsdatum`). Ein Artikel besteht aus einer Teilenummer (`teilenummer`) sowie den weiteren generischen Attributen (`name`, `link`, `beschreibung`, `stueckzahl`, `stueckzahl_verfuegbar`, `foto`, `eaglebib`, `lager_raum`, `lager_schrank`, `meldebestand`, `rueckgabe_noetig`). Zu den generischen Attributen eines Artikels ist anzumerken, dass `link` die URL zu weiterführenden Ressourcen darstellt und `eaglebib` die komprimierte Eagle Bibliotheksdatei darstellt. Eine Ausleihe besteht aus einer Ausleih ID (`ausleihid`), einer Campus ID (`campusid`), die Information, bis wann die Ausleihe zurückgegeben ist (`zurueckzugeben_bis`), wann die Ausleihe ausgegeben wurde (`ausgegeben_am`) und dem aktuellen Status der ausleihe (`status`). Eine Ausleihe besteht auch aus einer oder mehreren Ausleihposition die wiederum aus einer ID (`ausleihpositionsid`), einer Ausleih ID (`ausleihid`), einer Teilenummer (`teilenummer`) sowie der Stückzahl (`stueckzahl`).

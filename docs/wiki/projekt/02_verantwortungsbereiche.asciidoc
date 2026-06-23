@@ -1,0 +1,8 @@
+[[sec:verantwortungsbereiche]]
+= Verantwortungsbereiche
+
+.Verantwortungsbereiche
+|===
+|Verantwortlicher | Verantwortungsbereich
+|mtorun|Datenbankschema (DDL SQL), Hardwarebereitstellung & Instandhaltung, UX-Design, Merge-Requests
+|===

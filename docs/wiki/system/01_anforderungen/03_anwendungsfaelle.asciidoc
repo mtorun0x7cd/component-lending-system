@@ -1,0 +1,237 @@
+[[sec:anwendungsfaelle]]
+= Anwendungsfälle
+
+[[sec:anwendungsfalldiagramm]]
+== Anwendungsfalldiagramm
+
+[plantuml]
+.UML-Anwendungsfalldiagramm für Bauteilverwaltung
+----
+left to right direction
+rectangle Bauteilverwaltung {
+    usecase "/LF06/ Artikel einbuchen" as LF06
+    usecase "/LF04/ Artikel bearbeiten, löschen" as LF04
+    usecase "/LF05/ Artikel anlegen" as LF05
+    usecase "/LF07/ Artikel ausleihen" as LF07
+    usecase "/LF08/ Artikelauswahl bearbeiten" as LF08
+    usecase "/LF09/ Artikelauswahl ausgeben" as LF09
+    usecase "/LF10/ Engpässe anzeigen lassen" as LF10
+    usecase "/LF11/ Einkaufsliste ausgeben lassen" as LF11
+    usecase "/LF12/ Suche" as LF12
+    usecase "/LF13/ Email Warnung" as LF13
+    usecase "/LF14/ Inventur" as LF14
+    usecase "/LF15/ Barcode erstellen" as LF15
+    usecase "/LF16/ Barcode löschen" as LF16
+    usecase "/LF17/ Barcode suche" as LF17
+}
+
+rectangle Verwaltung {
+    usecase "/LF01/ Moderator hinzufügen" as LF01
+    usecase "/LF02/ Benutzeraccount löschen" as LF02
+    usecase "/LF03/ Student hinzufügen" as LF03
+}
+
+actor "Administrator"
+actor "Moderator"
+actor "Student"
+
+Administrator -- (LF01)
+Moderator -- (LF02)
+Moderator -- (LF03)
+Administrator -- (LF04)
+Administrator -- (LF05)
+Student -- (LF07)
+Student -- (LF08)
+Student -- (LF09)
+Administrator -- (LF10)
+Administrator -- (LF11)
+Student -- (LF12)
+Administrator -- (LF13)
+Administrator -- (LF14)
+Administrator -- (LF15)
+Administrator -- (LF16)
+
+Moderator --|> Student
+Administrator --|> Moderator
+Administrator--|> Student
+(LF17) .> (LF12) : extends
+(LF06) .> (LF04) : extends
+----
+
+[[LF01]]
+== /LF01/ Moderator hinzufügen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator
+Beschreibung::  Es wird ein neuer Benutzeraccount über die Weboberfläche des Administratoraccounts angelegt. 
+1. Eingabe des Accountsnamens
+2. Eingabe weiterer Personendaten (optional)
+3. Eingabe des vorübergehenden Passworts
+
+[[LF02]]
+== /LF02/ Benutzeraccount löschen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator, Moderator
+Beschreibung::  Über die Weboberfläche wird die Funktion aufgerufen. Durch Auswahl des Accountnamens und anschließender Bestätigung wird der Account gelöscht.
+Moderatoren können nur vom Administrator gelöscht werden.
+
+[[LF03]]
+== /LF03/ Student hinzufügen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator, Moderator
+Beschreibung::  Über die Weboberfläche wird die Funktion aufgerufen. 
+1. Eingabe des Accountsnamens
+2. Eingabe der Personendaten (optional)
+3. Eingabe des vorübergehenden Passworts
+
+[[LF04]]
+== /LF04/ Artikel bearbeiten, löschen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator
+Beschreibung::  Über die Weboberfläche wird die Funktion aufgerufen. 
+1. Über eine Suchmaske wird der gewünschte Artikel ausgewählt
+2. Es werden alle Artikelstammdaten in einer modifizierbaren Ansicht angezeigt
+3. Die Änderungen werden gespeichert
+4. Wurde das Löschen das Artikels ausgewählt wird der Artikel aus der Datenbank entfernt
+
+[[LF05]]
+== /LF05/ Artikel anlegen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator
+Beschreibung::  Über die Weboberfläche wird die Funktion aufgerufen. 
+1. Die Artikeldaten werden eingetragen
+2. Ein Bild für den Artikel kann hochgeladen werden
+3. Der Artikel wird der Datenbank hinzugefügt und steht nun zum Abruf bereit
+
+
+[[LF06]]
+== /LF06/ Artikel einbuchen
+
+[horizontal]
+Priorität:: optional
+Akteur:: Administrator
+Beschreibung::  Über die Weboberfläche wird die Funktion aufgerufen. 
+1. Über eine Suchmaske lassen sich mehrere Artikel einer Tabelle hinzufügen
+2. Die Artikelstückzahlen können gleichzeitig bearbeitet werden
+3. Die Änderungen werden abgespeichert
+
+[[LF07]]
+== /LF07/ Artikel ausleihen
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Student
+Beschreibung::  Es können sich nach der Anmeldung in die Weboberfläche über ein Auswahlmenü nach Kategorien oder der Suchfunktion Artikel angezeigt werden lassen.
+1. Eine Stückzahl des Artikels wird ausgewählt (standardmäßig 1 Stk.)
+2. durch betätigen eines Buttons wird geprüft, ob der Bestand verfügbar ist und, falls ja, der Artikel der Auswahl hinzugefügt
+
+[[LF08]]
+== /LF08/ Artikelauswahl bearbeiten
+
+[horizontal]
+Priorität:: optional
+Akteur:: Student
+Beschreibung::  Nachdem der erste Artikel ausgewählt wurde, kann die Funktion zur Bearbeitung der Artikelauswahl aufgerufen werden. 
+1. dem Studenten wird eine Liste von ausgewählten Artikeln mit einer modifizierbaren Stückzahl angezeigt
+2. durch Auswahl des Buttons "Artikel löschen" wird der Artikel aus der Liste wieder entfernt und die Liste aktualisiert dargestellt
+3. durch Auswahl des Buttons "speichern" werden die Änderungen der Stückzahlen gespeichert
+4. durch einen Button "zurück" kann der Student wieder zum Auswahlmenü zurückkehren
+
+[[LF09]]
+== /LF09/ Artikelauswahl ausgeben
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Student
+Beschreibung::  In der Weboberfläche, über die Anzeige der Artikelauswahl, lässt sich über einen Button "Artikelauswahl abschließen" eine Datei mit einer Auflistung aller ausgewählten Artikel ausgeben.
+1. Es erfolgt eine Abfrage, ob die Auswahl abgeschlossen werden soll. Falls "nein" wird der Vorgang abgebrochen.
+2. falls "ja" gewählt wurde, werden die Artikelstückzahlen vom Bestand abgezogen. 
+2a. falls der meldebestand eines Artikel erreicht wurde, wird dem Administrator eine Benachrichtigung mit den entsprechenden Artikeln angezeigt.
+3. Die Liste wird dem Student im Format einer PDF-Datei ausgegeben.
+4. Die Artikelauswahl wird zurückgesetzt und die Ansicht wechselt zur Startseite
+
+[[LF10]]
+== /LF10/ Engpässe anzeigen lassen
+
+[horizontal]
+Priorität:: optional
+Akteur:: Administrator
+Beschreibung::  In der Weboberfläche des Administrators kann über einen Button eine Liste aller Engpässe angezeigt werden
+1. Die Liste weist einen modifizierbaren Sicherheitsbestand aus.
+2. durch Ändern des Sicherheitsbestand und anschließenden Bestätigen lassen sich Artikel aus der Liste entfernen. 
+3. Durch Auswahl eines Buttons lässt sich die Liste in die Einkaufsliste übertragen
+
+[[LF11]]
+== /LF11/ Einkaufsliste ausgeben lassen
+
+[horizontal]
+Priorität:: optional
+Akteur:: Administrator
+Beschreibung::  
+1. durch Übertrag aus der Meldebestandsliste oder durch eine Suchfunktion werden Artikeln aufgenommen
+2. die Auswahl der Artikel wird als PDF-Dokument ausgegeben
+3. Angabe des Rückgabe Datum
+
+[[LF12]]
+== /LF12/ Suche
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Alle
+Beschreibung::  
+Durch Eingabe des Artikelnamens und Bestätigung wird in der Datenbank nach dem Artikel gesucht.  Anschließend Auflistung aller Artikeldaten.
+
+[[LF13]]
+== /LF13/ Email Warnung
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator
+Beschreibung::  
+Der Administrator wird bei überfälligen Studenten benachrichtigt.
+
+[[LF14]]
+== /LF14/ Inventur
+
+[horizontal]
+Priorität:: Muss
+Akteur:: Administrator
+Beschreibung::  
+Auflistung aller Artikel die im Lager vorhanden sein müssten.
+
+[[LF15]]
+== /LF15/ Barcode erstellen
+
+[horizontal]
+Priorität:: optional
+Akteur:: Administrator
+Beschreibung::  
+Generierung eines eindeutigen Barcode und Zuweisung zu einem Artikel.
+
+[[LF16]]
+== /LF16/ Barcode löschen
+
+[horizontal]
+Priorität:: optional
+Akteur:: Administrator
+Beschreibung::  
+Löschen oder Deaktivierung des Barcodes zu einem Artikel.
+
+[[LF17]]
+== /LF17/ Barcode suche
+
+[horizontal]
+Priorität:: optional
+Akteur:: Alle
+Beschreibung::  
+Nach dem Scannen des Barcodes Decodierung und anschließende Suche in der Datenbank nach dem Artikel.
+

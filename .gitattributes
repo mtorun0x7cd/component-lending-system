@@ -1,0 +1,26 @@
+# Normalize line endings for all text files
+* text=auto
+
+# PHP / SQL sources -- enforce LF
+*.php  text eol=lf
+*.sql  text eol=lf
+
+# Documentation & markup -- enforce LF
+*.asciidoc  text eol=lf
+*.md        text eol=lf
+*.svg       text eol=lf
+
+# Configuration -- enforce LF
+*.yml   text eol=lf
+*.cff   text eol=lf
+
+# Editor/Git configs
+.editorconfig   text eol=lf
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+
+# Binary assets
+*.pdf   binary
+*.png   binary
+*.PNG   binary
+*.jpg   binary

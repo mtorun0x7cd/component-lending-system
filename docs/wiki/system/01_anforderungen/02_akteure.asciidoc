@@ -1,0 +1,17 @@
+[[sec:akteure]]
+= Akteure
+
+[[sec:student]]
+== Student
+
+Ein Student kann die Artikel über ein Menü oder wahlweise eine Suchfunktion abrufen und zu seiner Auswahl hinzufügen. Nach der Auswahl der gewünschten Artikel kann man sich alle Artikel im Warenkorb auflisten lassen. Hier besteht dann die Möglichkeit sich diese Artikel auszuleihen, aus dem Warenkorb zu entfernen oder die Stückzahl zu ändern. Sobald die Artikel ausgeliehen wurden kann man mit dem Ausdruck der Bestätigung des Ausleihvorgangs das Labor aufsuchen und sich die Artikel ausgeben lassen. Der Student hat Zugriff auf eine Übersicht aller Artikel, die er noch zurückgeben muss mit der Angabe bis wann. Auch ältere, bereits zurückgegebene Ausleihvorgänge lassen sich in dieser Übersicht anzeigen.
+
+[[sec:moderator]]
+== Moderator
+
+Der Moderator hat die Funktion neue Studenten im System aufzunehmen und bestehende Studentenaccounts zu löschen. Zudem hat der Moderator die Funktion Ausleihvorgänge abzuwickeln.
+
+[[sec:administrator]]
+== Administrator
+
+Das Administratoraccount verfügt über alle Berechtigungen eines Moderators und hat darüber hinaus auch die Autorisierung neue Artikel im System anzulegen und Artikel zu löschen oder Artikeldaten zu verändern. Der Administrator kann eine Übersicht aller Artikel, die den Meldebestand erreicht haben, ausgeben lassen.
