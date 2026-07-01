@@ -1,5 +1,5 @@
 # Normalize line endings for all text files
-* text=auto
+* text=auto eol=lf
 
 # PHP / SQL sources -- enforce LF
 *.php  text eol=lf
