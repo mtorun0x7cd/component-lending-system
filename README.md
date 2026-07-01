@@ -28,7 +28,7 @@ The repository carries the project's arc42 documentation in AsciiDoc, covering r
 | Dimension | Detail |
 | :--- | :--- |
 | **Institution** | TH Köln (Cologne University of Applied Sciences) |
-| **Program** | Computer Science and Systems Engineering (B.Sc.) |
+| **Program** | Technische Informatik (Technical Computer Science), B.Sc. |
 | **Course** | Systementwurfs-Praktikum (Systems Design Lab) (SYP) |
 | **Supervising lecturers** | Dr. T. Krawutschke, M. Völker (TH Köln) |
 | **Semester** | Winter 2019/20 |
