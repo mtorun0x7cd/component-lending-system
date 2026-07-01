@@ -51,7 +51,7 @@ The repository carries the project's arc42 documentation in AsciiDoc, covering r
 
 The system follows a three-tier layered architecture. The architecture documentation names one component per layer: **WebUI** (presentation), **AusleihService** (logic), and **AusleihDataAccess** (data access).
 
-```
+```text
 ┌─────────────────────────────────────────────┐
 │              Presentation (WebUI)           │
 │         PHP + HTML5 + CSS3 + Bootstrap      │
@@ -73,7 +73,7 @@ The system follows a three-tier layered architecture. The architecture documenta
 The implemented schema in [`sql/bauteilverwaltung.sql`](sql/bauteilverwaltung.sql) consists of five tables:
 
 | Table | Purpose |
-|-------|---------|
+| ------- | --------- |
 | `benutzergruppen` | Role definitions (*Neu*, *Student*, *Moderator*, *Admin*) |
 | `benutzer` | User accounts keyed by campus ID, with bcrypt-hashed passwords and password-reset fields |
 | `artikel` | Component catalogue: part number, stock and available stock, photo, EAGLE library, storage location, reorder threshold |
@@ -83,6 +83,7 @@ The implemented schema in [`sql/bauteilverwaltung.sql`](sql/bauteilverwaltung.sq
 Two triggers maintain `artikel.stueckzahl_verfuegbar` (available stock) without application-layer bookkeeping [1]: `stueckzahl_calc_sub_trig` decrements it before an `INSERT` on `ausleihposition`, and `stueckzahl_calc_add_trig` increments it before a `DELETE`. The implemented `benutzer` table folds the user password in directly; the specification models it as a separate `benutzerpasswort` entity. See [`sql/sql_scheme.PNG`](sql/sql_scheme.PNG) for the ER diagram.
 
 #### Entity-Relationship Diagram (ERD)
+
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#E0F2F1', 'edgeColor': '#009688', 'primaryBorderColor': '#00695C', 'lineColor': '#009688', 'textColor': '#004D40' }}}%%
 erDiagram
@@ -165,7 +166,7 @@ sequenceDiagram
 ## Tech Stack
 
 | Category | Technologies |
-|----------|-------------|
+| ---------- | ------------- |
 | Language | PHP 7 (procedural, `mysqli`) |
 | Database | MySQL / MariaDB |
 | Frontend | HTML5, CSS3, Bootstrap 4.3.1, jQuery 3.3.1 |
@@ -175,7 +176,7 @@ sequenceDiagram
 
 ## Project Structure
 
-```
+```text
 component-lending-system/
 ├── src/                            # PHP application source
 │   ├── config.php                  # Database connection configuration
@@ -234,11 +235,13 @@ This creates the `bauteilverwaltung` database with all tables, triggers, the rol
 ### Application Setup
 
 1. Copy the application into your web server's document root:
+
    ```bash
    cp -r src/* bilder /var/www/html/
    ```
 
 2. Edit the connection constants in `src/config.php` — the committed values are placeholders:
+
    ```php
    define('DB_SERVER', '<db-host>');
    define('DB_USERNAME', '<db-user>');
@@ -260,7 +263,7 @@ sudo cp -r src/* bilder /var/www/html/
 ### Default Credentials
 
 | Role | Campus ID | Password |
-|------|-----------|----------|
+| --- | --- | --- |
 | Admin | `admin` | `admin` |
 
 > Change the default password immediately after first login.
@@ -270,7 +273,7 @@ sudo cp -r src/* bilder /var/www/html/
 The arc42 documentation lives in [`docs/wiki/`](docs/wiki/):
 
 | Document | Description |
-|----------|-------------|
+| ---------- | ------------- |
 | [Requirements](docs/wiki/system/01_anforderungen/) | Overview, actors, 17 use cases (LF01–LF17), data requirements, quality attributes, and constraints |
 | [Specification](docs/wiki/system/02_spezifikation/) | Data schema, behavioral specification, and interface definitions |
 | [Architecture](docs/wiki/system/03_architektur/) | Context, component breakdown (WebUI → AusleihService → AusleihDataAccess), runtime views, and deployment topology |
@@ -281,11 +284,11 @@ The user- and development-guide sections under `04_benutzer/` are unfilled arc42
 
 ## References
 
-[1] Oracle Corporation, "MySQL 5.7 Reference Manual — Trigger Syntax and Examples," *MySQL Documentation*, 2019. [Online]. Available: https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html
+[1] Oracle Corporation, "MySQL 5.7 Reference Manual — Trigger Syntax and Examples," *MySQL Documentation*, 2019. [Online]. Available: <https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html>
 
 [2] D. F. Ferraiolo, R. Sandhu, S. Gavrila, D. R. Kuhn, and R. Chandramouli, "Proposed NIST Standard for Role-Based Access Control," *ACM Transactions on Information and System Security*, vol. 4, no. 3, pp. 224–274, 2001.
 
-[3] Raspberry Pi Foundation, "Setting up an Apache Web Server on a Raspberry Pi," *Raspberry Pi Documentation*, 2019. [Online]. Available: https://www.raspberrypi.com/documentation/computers/remote-access.html
+[3] Raspberry Pi Foundation, "Setting up an Apache Web Server on a Raspberry Pi," *Raspberry Pi Documentation*, 2019. [Online]. Available: <https://www.raspberrypi.com/documentation/computers/remote-access.html>
 
 ## Citation
 
