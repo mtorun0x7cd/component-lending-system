@@ -36,7 +36,7 @@ jobs:
         run: zip -r component-lending-system.zip src sql bilder LICENSE README.md
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: component-lending-system
           path: component-lending-system.zip
