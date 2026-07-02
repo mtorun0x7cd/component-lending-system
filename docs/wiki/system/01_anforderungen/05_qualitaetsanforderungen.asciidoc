@@ -1,0 +1,39 @@
+= Qualitätsanforderungen
+
+[[LQ10]]
+== /LQ10/ Benutzbarkeit
+[horizontal]
+Kategorie:: Benutzbarkeit
+Wichtigkeit:: sehr wichtig
+Beschreibung::  dem Benutzer soll eine intuitive Bedienung der Oberfläche gewährleistet sein.
+
+[[LQ20]]
+== /LQ20/ Effizienz
+
+[horizontal]
+Kategorie:: Effizienz
+Wichtigkeit:: wichtig
+Beschreibung::  die Datenbank Abfragen sollen in einer angemessenen Zeit erfolgen, außerdem soll kein übermäßig langes PHP Skript laufen.
+
+[[LQ30]]
+== /LQ30/ Änderbarkeit und Wartbarkeit
+[horizontal]
+Kategorie:: Änderbarkeit und Wartbarkeit
+Wichtigkeit:: sehr wichtig
+Beschreibung::   insbesondere werden Standard-Werkzeuge für die Erstellung der Website und Datenbank genutzt - anstelle von Proprietären Werkzeugen - um die Weiterentwicklung des Produktes erheblich zu erleichtern.
+
+[[LQ40]]
+== /LQ40/ Zuverlässigkeit
+
+[horizontal]
+Kategorie:: Zuverlässigkeit
+Wichtigkeit:: sehr wichtig
+Beschreibung::  durch Auswertung der Fehlermeldung des SQL - Servers, soll ein Hohes maß der Qualität, der Datenbank garantiert sein.
+
+[[LQ50]]
+== /LQ50/ Funktionalität
+
+[horizontal]
+Kategorie:: Funktionalität
+Wichtigkeit:: sehr wichtig
+Beschreibung::  Die Weboberfläche sowie Datenbank sollen alle funktionalen Anforderungen erfüllen.

@@ -1,0 +1,41 @@
+[[sec:zeitplanung]]
+= Zeitplanung
+
+[plantuml]
+[[fig:zeitplanung]]
+.Zeitplanung
+----
+project starts the 2019/10/04
+saturday are closed
+sunday are closed
+2019/11/01 is closed
+2019/11/18 to 2019/11/22 are closed
+2019/12/23 to 2020/01/03 are closed
+
+[Fragen vorbereiten] on {mtorun} lasts 3 days
+[1. Betreuertreffen] happens at [Fragen vorbereiten]'s end
+[anforderungen schreiben] on {mtorun} lasts 15 days and starts at [1. Betreuertreffen]'s end
+[entwicklungsinfrastruktur vorbereiten] on {mtorun} lasts 15 days and starts at [1. Betreuertreffen]'s end
+[MS1.0] happens at 2019/10/30
+[projekt\zeitplanung schreiben] on {mtorun} lasts 8 days and starts at [MS1.0]'s end
+[projekt\verantwortungsbereiche schreiben] on {mtorun} lasts 8 days and starts at [MS1.0]'s end
+[spezifikation\datenschema schreiben] on {mtorun} lasts 8 days and starts at [MS1.0]'s end
+[spezifikation\verhalten schreiben] on {mtorun} lasts 8 days and starts at [MS1.0]'s end
+[spezifikation\schnittstellen schreiben] on {mtorun} lasts 8 days and starts at [MS1.0]'s end
+[MS2.0] happens at 2019/11/13
+[architektur\kontext sowie komponenten schreiben] on {mtorun} lasts 15 days and starts at [MS2.0]'s end
+[architektur\ laufzeitsicht sowie verteilung schreiben] on {mtorun} lasts 15 days and starts at [MS2.0]'s end
+[implementierung prototyp] on {mtorun} lasts 15 days and starts at [MS2.0]'s end
+[praesentation entwerfen] on {mtorun} lasts 15 days and starts at [MS2.0]'s end
+[MS3.0] happens at 2019/12/12
+[aktualisierung bisheriger lieferobjekte] on {mtorun} lasts 5 days and starts at [MS3.0]'s end
+[MS3.1] happens at 2019/12/20
+[testprotokoll schreiben] on {mtorun} lasts 8 days and starts at [MS3.1]'s end
+[implementierung des endproduktes] on {mtorun} lasts 8 days and starts at [MS3.1]'s end
+[praesentation entwerfen] on {mtorun} lasts 8 days and starts at [MS3.1]'s end
+[aktualisierung bisheriger lieferobjekte] on {mtorun} lasts 8 days and starts at [MS3.1]'s end
+[MS4.0] happens at 2020/01/16
+[system\benutzer schreiben] on {mtorun} lasts 9 days and starts at [MS4.0]'s end
+[aktualisierung bisheriger lieferobjekte] on {mtorun} lasts 9 days and starts at [MS4.0]'s end
+[MS5.0] happens at 2020/01/30
+----

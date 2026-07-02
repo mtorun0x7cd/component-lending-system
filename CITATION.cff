@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: Component Lending System (Bauteilverwaltung)
+message: If you use this software, please cite it using the metadata below.
+type: software
+abstract: >-
+  A PHP web application for managing the lending of electronic components in a
+  university embedded-systems laboratory. It provides a self-service catalogue,
+  a shopping-cart lending workflow, role-based access control, and inventory
+  management over a normalized MySQL schema with stock-recalculating triggers.
+  Developed as a team project at TH Köln (Cologne University of Applied
+  Sciences) and operated on a Raspberry Pi within the campus network.
+authors:
+  - given-names: Mert
+    family-names: Torun
+    email: info@mtorun0x7cd.com
+    affiliation: TH Köln
+version: 1.0.0
+date-released: 2020-01-30
+license: MIT
+repository-code: https://github.com/mtorun0x7cd/component-lending-system
+url: https://github.com/mtorun0x7cd/component-lending-system
+keywords:
+  - inventory-management
+  - lending-system
+  - php
+  - mysql
+  - bootstrap
+  - raspberry-pi
+  - embedded-systems
+  - role-based-access-control
+  - web-application
+  - academic-project

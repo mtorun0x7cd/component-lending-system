@@ -1,0 +1,17 @@
+[[sec:randbedinungen]]
+= Randbedingungen
+
+[[LC10]]
+== /LC10/ Netzwerk Verfügbarkeit
+
+Das System wird im Hochschulnetz der TH Koeln betrieben, das bedeutet im spezifischen, dass es einen Mikrocontroller (Raspberry Pi) im Labor auf der Ebene 6 geben wird, der an das Hochschulnetz angeschlossen wird. In diesem Mikrocontroller wird das Projekt realisiert, es laufen eine SQL Engine und der PHP Server.  Es ist wichtig anzumerken, das, weil die Website im Hochschulnetz betrieben wird, diese nur im Hochschulnetz oder über einen VPN erreichbar sein wird.
+
+[[LC20]]
+== /LC20/ Namensauflösung
+
+Zugreifbar wird die ES - Bauteilverwaltung B über eine URL und nicht über die IP, dies soll den Benutzern den Zugang zu der Website erleichtern.
+
+[[LC30]]
+== /LC30/ Dokumentation mit Git Wiki
+
+Die Dokumentation des Projekts soll in der Repository-Spezifischen Wiki erfolgen, diese ist auch als PDF exportierbar und hat das AsciiDoc Format.

@@ -1,0 +1,7 @@
+[[sec:installation]]
+= Installation
+
+NOTE: Beschreiben Sie die nötigen Schritte, um ihr System von Grund auf zu installieren. Sie können an dieser Stelle auch auf eine ggf. vorhandene README-Datei im Wurzelverzeichnis des Source-Code-Repositories verweisen, in der Installationsschritte normalerweise beschrieben werden.
+
+
+
