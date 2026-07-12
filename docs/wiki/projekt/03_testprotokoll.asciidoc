@@ -1,0 +1,6 @@
+[[sec:testprotokoll]]
+= Testprotokoll
+
+NOTE: Beschreiben Sie hier Testfälle und -ergebnisse. Sie können die Testfall-Spezifiation von einzelnen Testdurchführungen trennen. Letztlich reicht hier aber das Protokoll der letzten Testdurchführung vor der Übergabe an den Betreuer. Sollten Sie Ihre Tests automatisieren, können Sie an dieser Stelle auch auf generierte Reports verweisen.
+ 
+

@@ -1,0 +1,42 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.buildpath
+.nbproject/
+
+# PHP / Composer
+vendor/
+composer.phar
+
+# Logs, cache, temporary files
+.tmp/
+tmp/
+temp/
+*.tmp
+*.cache
+*.log
+error_log
+.tmp.nosync/
+
+# Environment / local configuration
+.env
+.env.local
+.env.*.local
+config.local.php
+
+# SQL dumps (keep the canonical schema)
+*.sql
+!sql/bauteilverwaltung.sql

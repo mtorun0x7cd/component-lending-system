@@ -1,0 +1,16 @@
+= Daten
+
+[[LD10]]
+== /LD10/ Benutzer
+
+Ein Benutzer ist eine Entität, die alle Daten eines Benutzeraccounts enthält. Hierzu gehören die Benutzerstammdaten (Name, Vorname, Adresse, ...), das Benutzerpasswort sowie die Benutzergruppe (Student, Administrator, Moderator).
+
+[[LD20]]
+== /LD20/ Artikel
+
+Ein Artikel ist eine Entität, die alle Daten eines Artikels enthält, der in einer Ausleihe vorkommen kann. Darunter zählen unter anderem Eigenschaften wie Artikelname, Teilenummer, Beschreibung, etc.
+
+[[LD30]]
+== /LD30/ Ausleihe
+
+Eine Ausleihe ist eine Entität, die alle Daten eines Ausleihvorgangs enthält. Hierzu gehören die Artikel, welche ausgeliehen wurden, das Rückgabedatum, das Ausleihdatum sowie der zugeordnete Benutzer zu der Ausleihe. Auf Basis eines Ausleihvorgangs, kann insbesondere eine Ausleihe in Form einer PDF (der Ausdruck, was eigentlich ausgeliehen wird und in welcher Menge) erzeugt werden, die dem Dozenten vorgelegt werden kann um sich die Teile schlussendlich auszuleihen.

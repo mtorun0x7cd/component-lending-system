@@ -1,0 +1,59 @@
+[[sec:verteilung]]
+= Verteilung
+
+[[sec:buildartefakte]]
+== Build-Artefakte
+
+[plantuml]
+[[fig:buildartefakte]]
+.Build-Artefakte
+----
+component WebUI
+artifact Home.html
+Home.html ..> WebUI: <<manifest>>
+artifact Inventar.html
+Inventar.html ..> WebUI: <<manifest>>
+artifact etc.html
+etc.html ..> WebUI: <<manifest>>
+artifact AusleihService.php
+AusleihService.php ..> WebUI: <<manifest>>
+
+
+----
+[plantuml]
+[[fig:buildartefakte]]
+.Build-Artefakte
+----    
+
+component DBServer
+artifact bauteilverwaltung.sql
+bauteilverwaltung.sql ..> DBServer: <<manifest>>
+----
+
+[[sec:datenverteilung]]
+== Daten-Verteilung
+
+Die Daten werden direkt in der Datenbank bearbeitet und gespeichert.
+
+
+[[sec:deployment]]
+== Deployment
+
+[plantuml]
+[[fig:deployment]]
+.Deployment
+----
+node Browser <<client>>
+node Webserver <<web_server>>{
+        artifact website.html
+        artifact AusleihService.php
+}
+node DBServer <<db_server>>{
+        artifact bauteilverwaltung.sql   
+}
+
+Browser -- Webserver: http 
+Webserver -- DBServer: php
+----
+
+Wie das <<fig:Deployment, obige Deploymentdiagramm>> zeigt, greift der `Browser` des Klienten über HTTP auf den Webserver zu. Das aufgerufene HTML-Dokument greift über PHP-Operationen auf den `DBServer`, eine MySQL-Datenbank, zu.

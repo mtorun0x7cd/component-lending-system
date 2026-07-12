@@ -1,0 +1,25 @@
+[[sec:uebersicht]]
+= Übersicht
+
+[[sec:projektbeschreibung]]
+== Projektbeschreibung
+
+**Folgender Absatz stammt (abgewandelt) aus der Projektbeschreibung:**
+
+In der Veranstaltung Eingebettete Systeme (ES) werden in kleinen Gruppen Projekte absolviert. Es kommen Mikrocontrollermodule (wie zum Beispiel das aktuell genutzte Nucleo Board F401RE), Sensormodule, Aktoren und weitere elektronische Kleinbauteile aus dem Laborbestand zum Einsatz. Im Laufe der Veranstaltung wird auf Basis des Microcontrollers ein System in der Praxis von der Konzeptionierung bis zur Entwicklung umgesetzt. Hierfür wird eine Platine entworfen, die die nötigen Sensoren/Aktoren und weitere Bauelemente für den Microcontroller enthält. Diese wird von der Hauseigenen Werkstatt nach gegebenen Plan konstruiert. Dafür kann im Labor die benötigte Hardware ausgeliehen werden.
+ 
+Für die Prototyp-Platinen werden elektronische Bauteile aus dem Laborfundus bereitgestellt, die nicht zurückgegeben werden müssen. Das von uns zu entwickelnde Verwaltungssystem soll die zur Verfügungen stehenden Bauteile (hier: Artikel) und Module darstellen (in Form einer HTML5 Webseite), mit Bauteilname, -foto, -stückzahl, -ort, -art, -beschreibung, Links zu CAD-Bibliotheken (Eagle) und ergänzenden Datenblättern. Labormitarbeiter sollen Artikel anlegen und editieren können.
+
+Die Ausleihe soll fortan über dieses Web-Interface organisiert und verwaltet werden, also ein Ausleihformular beherbergen und eine Übersicht der derzeitig ausgeliehenen Artikel und ihrer Rückgabetermine.
+
+Als Extra, ohne Muss, stand die Integration eines Barcode-Scanners im Raum, um die Organisation und die lokale Verwaltung der Bauteile zu erleichtern.
+
+Konkret wünscht sich Herr Dr. T. Krawutschke eine Webseite, die ähnlich einem Onlineshop aufgebaut ist. Er möchte hier als Administrator die Möglichkeit haben das System zu pflegen. Darüber hinaus soll es ausgewählte Hilfskräfte geben, die die Berechtigung haben Studenten in das System mitaufzunehmen und sie zu entfernen. Die Plattform stellt eine Suchfunktion (Volltextsuche) zur Verfügung, über die Bauteile gefunden werden können. Sind alle Bauteile ausgewählt, wird eine Liste ausgegeben.
+
+[[sec:einsatzzweck]]
+== Einsatzzweck
+Das Bauteilverwaltungssystem dient den Studenten als Ausleihsystem für elektronische Bauelemente. Es bietet dem Benutzer eine Übersicht über eine sinnvolle Auswahl an Informationen wie Artikeldaten, Bestandsdaten, Verweise auf eine EAGLE-Datenbank und ein Artikelbild. Zudem hilft es dem Dozenten bei der Bestandsüberwachung. Es werden Listen  erstellt, um Nachbestellungen für den Bestand auszulösen oder eine Ausleihe eines Studenten zu dokumentieren.
+
+[[sec:technik]]
+== Technik
+Auf Basis von einer Wordpress Vorlage wird eine Website mit den gängigen Webseite Werkzeugen erstellt (HTML5, CSS, PHP, MYSQL). Die Weboberfläche greift auf eine MYSQL Datenbank zu, in der alle Informationen über Artikel, Benutzer und Ausleihvorgänge verwaltet werden. Das System wird auf einem Rasberry Pi aufgesetzt und im Labor an das lokale Hochschul-Netz angeschlossen. Die Benutzer des Systems müssen im Netzwerk der Hochschule sein, um auf den Dienst zuzugreifen.
