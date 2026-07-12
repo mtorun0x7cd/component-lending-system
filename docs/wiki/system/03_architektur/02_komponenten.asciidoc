@@ -1,0 +1,47 @@
+[[sec:komponenten]]
+= Komponente
+
+[plantuml]
+[[fig:komponenten]]
+.Komponenten
+----
+left to right direction
+frame presentation {
+    component WebUI <<UI>>
+    interface Bauteilverwaltung_WebUI
+    WebUI -up- Bauteilverwaltung_WebUI
+}
+
+frame logic {
+    component AusleihService <<Service>>
+    interface IAusleihService
+    AusleihService -up- IAusleihService
+}
+
+frame dataaccess {
+    component AusleihDataAccess <<DataAccess>>
+    interface IAusleihDataAccess
+    AusleihDataAccess -up- IAusleihDataAccess     
+}
+
+dataaccess -[hidden]up-> logic
+logic -[hidden]up-> presentation
+
+AusleihService .> IAusleihDataAccess: uses
+WebUI .> IAusleihService: uses
+----
+
+== Komponente `WebUI`
+Verantwortlichkeit:: Die Komponente `WebUI` dient zur Kommunikation mit dem Akteur, d.h. HTTP-Requests werden von dieser Komponente entgegengenommen und an `IAusleihService` weitergereicht sowie Rückgabewerte von `IAusleihService` entgegengenommen.
+Schnittstelle `Bauteilverwaltung_WebUI`::
+Realisierung:: Die Komponente wird in großen Teilen aus HTML sowie CSS Dateien bestehen. 
+
+== Komponente `AusleihService`
+Verantwortlichkeit:: Die Komponente `AusleihService` ist in der Logik Schicht unserer Website angesiedelt und stellt die Verbindung zwischen Datenbank und Website her, die dem Kunden die Ausleihen, den Login sowie die Rückgaben ermöglicht.
+Schnittstelle `IAusleihService`::
+Realisierung:: Die Komponente besteht hauptsächlich aus PHP Dateien die von der `WebUI` Komponente aus aufgerufen werden.
+
+== Komponente `AusleihDataAccess`
+Verantwortlichkeit:: Die Komponente `AusleihDataAccess` dient zur Datenhaltung unserer Stammdaten und Ausleihen.
+Schnittstelle `AusleihDataAccess`::
+Realisierung:: Die Komponente besteht aus einer einzigen normalisierten SQL Datenbank mit mehreren Tabellen und unterschiedlichen Kardinalitäten.

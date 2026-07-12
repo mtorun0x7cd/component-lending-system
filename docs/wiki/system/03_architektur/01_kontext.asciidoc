@@ -1,0 +1,31 @@
+[[sec:kontext]]
+= Kontext
+
+[plantuml]
+[[fig:kontext]]
+.Kontext
+----
+component Bauteilverwaltung <<system>> #lightgreen
+interface Bauteilverwaltung_WebUI <<HTTP>> #lightgreen
+Bauteilverwaltung_WebUI -down- Bauteilverwaltung
+
+component Verwaltung <<system>>
+interface Stammdaten <<HTTP>>
+Verwaltung -left- Stammdaten
+Bauteilverwaltung ..> Stammdaten: uses
+interface Verwaltung_WebUI <<HTTP>>
+Verwaltung -up- Verwaltung_WebUI
+
+component Browser <<system>>
+Browser .down.> Bauteilverwaltung_WebUI: uses
+Browser .down.> Verwaltung_WebUI: uses
+----
+
+== System Bauteilverwaltung
+Beschreibung:: Bauteilverwaltung ist das zu entwickelnde Shop-System.
+Schnittstelle Bauteilverwaltung_WebUI:: Die Schnittstelle Bauteilverwaltung_WebUI liefert die Web-Oberfläche.
+
+== System Verwaltung
+Beschreibung:: Die Verwaltung ist eine Web-Applikation, die zu Verwaltung von Kundenstammdaten inkl. User-Login-Daten und zur Integration verschiedener Web-Applikationen dient, wovon Bauteilverwaltung eine ist.
+
+Schnittstelle Verwaltung_WebUI:: Die Verwaltung_WebUI liefert eine Web-Oberfläche mit allgemeinen Verwaltungfunktionen und einer Menüstruktur zur Navigation. Über IFrames können die Web-Oberflächen anderer Applikationen eingebunden und so Inhalte der Verwaltung und der jeweiligen anderen Web-Applikation auf einer einzigen Seite angezeigt werden.

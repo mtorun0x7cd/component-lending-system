@@ -1,0 +1,70 @@
+[[sec:laufzeitsicht]]
+= Laufzeitsicht
+
+[[sec:createShipment]]
+== Artikel ausleihen
+
+[plantuml]
+[[fig:artikelausleihen]]
+.Sequenz des ausleihvorgangs
+----
+-> Browser
+box Webserver 
+    participant WebUI
+    participant AusleihService
+end box
+box DBServer 
+    participant AusleihDataAccess
+end box
+Browser -> WebUI: choose article
+WebUI -> AusleihService: existing selection?
+AusleihService -> AusleihDataAccess: return selection
+alt existent
+    AusleihDataAccess -> AusleihService: selection 
+    AusleihService -> AusleihDataAccess: add to selection
+    AusleihDataAccess -> AusleihService: added to selection
+    AusleihService -> WebUI: added to selection
+else non-existent
+    AusleihDataAccess -> AusleihService: null
+    AusleihService -> AusleihDataAccess: add selection
+    AusleihDataAccess -> AusleihService: selection added
+    AusleihService -> AusleihDataAccess: add to selection
+    AusleihDataAccess -> AusleihService: added to selection
+    AusleihService -> WebUI: added to selection
+end
+<-- Browser
+----
+
+
+In der <<fig:artikelausleihen,Abbildung zu LF05 Artikel anlegen>> ist der Ablauf zur Auswahl eines Artikels dargestellt. Die Artikel werden im Inventar mit der verfügbaren Stückzahl angezeigt. Es ist nur möglich eine verfügbare Stückzahl auszuwählen. Wählt der Nutzer eine verfügbare Stückzahl aus und betätigt den Button, um den Artikel der Auswahl hinzuzufügen, übernimmt der `AusleihService` den Befehl mit der Artikelnummer und Stückzahl als Parametern. Über einen Datenbankzugriff auf `AusleihDataAccess` prüft der `AusleihService`, ob bereits eine bestehende Auswahl existiert.
+Falls keine Auswahl besteht, wird eine angelegt, bevor der Artikel dieser hinzugefügt wird. Falls ja, wird die ID der Auswahl dem `AusleihService` übergeben, wo der Artikel hinzugefügt wird.
+
+[[sec:createShipment]]
+== Artikelauswahl ausgeben
+
+[plantuml]
+[[fig:artikelauswahlausgeben]]
+.Sequenz der Ausgabe der Auuswahl
+----
+-> Browser
+box Webserver 
+    participant WebUI
+    participant AusleihService
+end box
+box DBServer 
+    participant AusleihDataAccess
+end box
+Browser -> WebUI: button "Auswahl abschließen"
+WebUI -> AusleihService: lock selection
+AusleihService -> AusleihDataAccess: return selection
+AusleihDataAccess -> AusleihService: selection 
+AusleihService -> AusleihDataAccess: amend articles
+AusleihDataAccess -> AusleihService: articles amended
+AusleihService -> AusleihDataAccess: amend status
+AusleihDataAccess -> AusleihService: status amended
+AusleihService -> WebUI: return selection.pdf
+<-- Browser
+----
+
+
+In der <<fig:artikelauswahlausgeben,Abbildung zu LF09 Artikelauswahl ausgeben>> ist der Ablauf zur Ausgabe der Auswahl geschildert. Der Anwender bestätigt, dass er seine Auswahl abschließen möchte. Dem `AusleihService` wird der Befehl übergeben. Vom `AusleihService` wird die Auswahl vom `AusleihDataAccess` abgefragt. Dann sendet der `AusleihService` den SQL-Befehl alle Artikel der Auswahl entsprechend anzupassen an `AusleihDataAccess`. Nach Bestätigung an `AusleihService` nimmt dieser die Anpassung des Status der Auswahl vor. Darauf wird die Auswahl dem Anwender als PDF ausgegeben.

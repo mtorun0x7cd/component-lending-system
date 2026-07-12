@@ -1,0 +1,24 @@
+[[sec:verhalten]]
+= Verhalten
+
+[[sec:zustaende]]
+== Zustände der Ausleihe
+[plantuml]
+[[fig:verhalten]]
+.Mögliche Zustände einer Ausleihe
+----
+hide empty description
+[*] --> bearbeitung: Artikel wird in Ausleihe gelegt
+bearbeitung --> verworfen: Löschen
+bearbeitung --> speicherung: Speichern
+speicherung --> bearbeitung: Aufruf durch Benutzer
+bearbeitung --> ausgeliehen: Bestätigung der Entnahme
+ausgeliehen --> geschlossen: Rückgabe nicht nötig/erfolgt
+geschlossen --> [*]
+verworfen --> [*]
+----
+
+Die Entität `ausleihe` wird im Zustand `bearbeitung` erzeugt, wenn für den `benutzer` keine `ausleihe` im Zustand `speicherung` oder `bearbeitung` existiert und ein `artikel` ausgewählt wird.
+Der `benutzer` kann im Zustand `bearbeitung` die `ausleihe` löschen, die `ausleihe` geht in den Zustand `verworfen` über.
+Durch bestätigen der `ausleihe` im Zustand `bearbeitung` wechselt ihr Zustand in `speicherung`. Wird die `ausleihe`, die sich im Zustand `speicherung` befindet, vom `benutzer` aufgerufen wechselt sie in den Zustand `bearbeitung`.
+Befindet sich der aufrufende `benutzer` in der `benutzergruppe` "Administrator" so kann er den Zustand der `ausleihe` auf `ausgeliehen` setzen. Sollten sich in der `ausleihe` keine Artikel befinden, die zurückzugeben sind, wird der Zustand auf `geschlossen` gesetzt. Ansonsten muss vom `benutzer` in der `benutzergruppe` "Administrator" eine Bestätigung der Rückgabe erfolgen, wodurch der Zustand auf `geschlossen` geändert wird.    
