@@ -1,6 +1,4 @@
 [[sec:testprotokoll]]
 = Testprotokoll
 
-NOTE: Beschreiben Sie hier Testfälle und -ergebnisse. Sie können die Testfall-Spezifiation von einzelnen Testdurchführungen trennen. Letztlich reicht hier aber das Protokoll der letzten Testdurchführung vor der Übergabe an den Betreuer. Sollten Sie Ihre Tests automatisieren, können Sie an dieser Stelle auch auf generierte Reports verweisen.
- 
-
+NOTE: Dieser Abschnitt wurde im ursprünglichen Studienprojekt (Winter 2019/20) nicht ausgearbeitet; ein formales Testprotokoll wurde nicht erstellt und ist nicht Bestandteil dieses archivierten Lieferobjekts. Die spezifizierten Anwendungsfälle (LF01–LF17) sind in der Anforderungsdokumentation festgehalten.
