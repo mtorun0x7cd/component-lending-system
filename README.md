@@ -33,7 +33,7 @@ The repository carries the project's arc42 documentation in AsciiDoc, covering r
 
 | Dimension | Detail |
 | :--- | :--- |
-| **Institution** | TH Köln (Cologne University of Applied Sciences) |
+| **Institution** | TH Köln (University of Applied Sciences) |
 | **Program** | Computer Science & Engineering (Technische Informatik), B.Sc. |
 | **Course** | Systementwurfs-Praktikum (Systems Design Lab) (SYP) |
 | **Supervising lecturers** | Dr. T. Krawutschke, M. Völker (TH Köln) |

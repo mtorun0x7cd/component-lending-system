@@ -7,8 +7,8 @@ abstract: >-
   university embedded-systems laboratory. It provides a self-service catalogue,
   a shopping-cart lending workflow, role-based access control, and inventory
   management over a normalized MySQL schema with stock-recalculating triggers.
-  Developed as a team project at TH Köln (Cologne University of Applied
-  Sciences) and operated on a Raspberry Pi within the campus network.
+  Developed as a team project at TH Köln (University of Applied Sciences)
+  and operated on a Raspberry Pi within the campus network.
 authors:
   - given-names: Mert
     family-names: Torun
