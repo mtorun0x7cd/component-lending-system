@@ -219,7 +219,7 @@ component-lending-system/
 │   ├── social_preview_dark.png     # Header graphic, dark theme
 │   ├── social_card.png             # Social-preview card
 │   └── render.sh                   # Header graphic render script
-├── .github/                        # Issue/PR metadata, funding, dependabot
+├── .github/                        # CI workflows, funding, dependabot
 ├── CITATION.cff
 ├── CONTRIBUTING.md
 ├── SECURITY.md
