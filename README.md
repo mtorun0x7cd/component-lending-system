@@ -91,7 +91,7 @@ Two triggers maintain `artikel.stueckzahl_verfuegbar` (available stock) without 
 #### Entity-Relationship Diagram (ERD)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#E0F2F1', 'edgeColor': '#009688', 'primaryBorderColor': '#00695C', 'lineColor': '#009688', 'textColor': '#004D40' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#EFF6FF', 'edgeColor': '#2563EB', 'primaryBorderColor': '#2563EB', 'lineColor': '#2563EB', 'textColor': '#0F172A' }}}%%
 erDiagram
     benutzergruppen {
         INT id PK
@@ -146,7 +146,7 @@ erDiagram
 The sequence below is the *specified* lifecycle from the architecture documentation; as noted above, the admin-side issue and return transitions are not implemented in this source.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#E0F2F1', 'edgeColor': '#009688', 'primaryBorderColor': '#00695C', 'lineColor': '#009688', 'textColor': '#004D40' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#EFF6FF', 'edgeColor': '#2563EB', 'primaryBorderColor': '#2563EB', 'lineColor': '#2563EB', 'textColor': '#0F172A' }}}%%
 sequenceDiagram
     autonumber
     actor U as User
